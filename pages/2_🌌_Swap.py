@@ -11,7 +11,7 @@ week_days = ['Monday', 'Tuesday', 'Wednesday',
              'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 # Layout
-st.set_page_config(page_title='Swaps - Light As a Feather',
+st.set_page_config(page_title='Swaps - Light as a Feather',
                    page_icon=':bar_chart:', layout='wide')
 st.title('🌌Swaps')
 

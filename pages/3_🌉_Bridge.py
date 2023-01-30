@@ -11,7 +11,7 @@ week_days = ['Monday', 'Tuesday', 'Wednesday',
              'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 # Layout
-st.set_page_config(page_title='Bridge - Light As a Feather',
+st.set_page_config(page_title='Bridge - Light as a Feather',
                    page_icon=':bar_chart:', layout='wide')
 st.title('🌉Bridge')
 
@@ -131,16 +131,3 @@ st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
 ##############################################
-# Luna Daily Volume
-fig = px.bar(df3.sort_values(["DATE", "VOLUME"], ascending=[
-             True, False]), x="DATE", y="VOLUME", color="STATUS", title='Luna Daily Volume')
-fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="Daily VOLUME")
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Luna Daily Transactions
-fig = px.bar(df3.sort_values(["DATE", "NUMBER_OF_TRANSACTIONS"], ascending=[
-             True, False]), x="DATE", y="NUMBER_OF_TRANSACTIONS", color="STATUS", title='Luna Daily Transactions')
-fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="Daily Transactions")
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)

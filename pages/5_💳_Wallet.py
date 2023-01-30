@@ -11,7 +11,7 @@ week_days = ['Monday', 'Tuesday', 'Wednesday',
              'Thursday', 'Friday', 'Saturday', 'Sunday']
 
 # Layout
-st.set_page_config(page_title='Wallets - Terra Dashboard',
+st.set_page_config(page_title='Wallets - Light as a Feather',
                    page_icon=':bar_chart:', layout='wide')
 st.title('💳Wallets')
 

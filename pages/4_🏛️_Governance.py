@@ -13,7 +13,7 @@ week_days = ['Monday', 'Tuesday', 'Wednesday',
 # Layout
 st.set_page_config(page_title='Supply - Light As a Feather',
                    page_icon=':bar_chart:', layout='wide')
-st.title('💰Supply')
+st.title('🏛️Governance')
 
 # Style
 with open('style.css')as f:
