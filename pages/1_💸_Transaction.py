@@ -42,12 +42,12 @@ df2 = overview_Transactions2
 df3 = Luna_Tx_Volume
 
 st.text(" \n")
-st.write(""" ## Total TX""")
+st.write(""" ## Total Transactions""")
 
 
 c1, c2 = st.columns(2)
 with c1:
-    st.write(""" #### Before Station Launched""")
+    st.write(""" ##### Before Station Launched""")
     st.metric(label='**Total Transactions**',
               value=str(df2["Total Transactions"].map('{:,.0f}'.format).values[0]))
 
@@ -59,7 +59,7 @@ with c1:
 
 
 with c2:
-    st.write(""" #### After Station Launched """)
+    st.write(""" ##### After Station Launched """)
     st.metric(label='**Total Transactions**',
               value=str(df["Total Transactions"].map('{:,.0f}'.format).values[0]))
     st.metric(label='**Total Blocks**',
@@ -109,7 +109,7 @@ st.write(""" ## Transaction Fees """)
 c1, c2 = st.columns(2)
 
 with c1:
-    st.write(" #### Before Station Launched")
+    st.write(" ##### Before Station Launched")
     st.metric(label='**Total Fees[Luna]**',
               value=df2["Total Fees"].map('{:,.0f}'.format).values[0])
     st.metric(label='**Max Transaction Fee[Luna]**',
@@ -120,7 +120,7 @@ with c1:
               value=df2["Avg FEE per block"].map('{:,.0f}'.format).values[0])
 
 with c2:
-    st.write(" #### After Station Launched")
+    st.write(" ##### After Station Launched")
     st.metric(label='**Total Fees[Luna]**',
               value=df["Total Fees"].map('{:,.0f}'.format).values[0])
     st.metric(label='**Max Transaction Fee[Luna]**',
@@ -169,7 +169,7 @@ st.write(""" ## Terra Users """)
 
 c1, c2 = st.columns(2)
 with c1:
-    st.write(""" #### Before Station Launched """)
+    st.write(""" ##### Before Station Launched """)
 
     st.metric(label='**Total Users**',
               value=df2["Total Users"].map('{:,.0f}'.format).values[0])
@@ -178,7 +178,7 @@ with c1:
 
 
 with c2:
-    st.write(""" ####  After Station Launched""")
+    st.write(""" #####  After Station Launched""")
     st.metric(label='**Total Users**',
               value=df["Total Users"].map('{:,.0f}'.format).values[0])
     st.metric(label='**Aveage Daily Users**',

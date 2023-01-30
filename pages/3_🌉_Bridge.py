@@ -13,7 +13,7 @@ week_days = ['Monday', 'Tuesday', 'Wednesday',
 # Layout
 st.set_page_config(page_title='Bridge - Light as a Feather',
                    page_icon=':bar_chart:', layout='wide')
-st.title('🌉Bridge')
+st.title('🌉Bridge Metrics')
 
 # Style
 with open('style.css')as f:
@@ -34,6 +34,11 @@ def get_data(query):
     elif query == 'bridge_out_daily':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/a703f4b2-210f-48b3-abc2-c6c5f37bfaa8/data/latest')
     return None
+
+
+st.write(""" ## Bridge Actions """)
+
+st.write(""" A crypto bridge (also known as a cross-chain bridge) is a tool that gives you the power to transfer digital assets and information from one blockchain to another. Interoperability has long been a pain point in blockchain technology. In the following we try to monitor bridge transaction a week before and after Station announcment. """)
 
 
 bridge_out_overview = get_data('bridge_out_overview')
@@ -68,26 +73,26 @@ with c2:
     st.metric(label='**Number**',
               value=df["NUMBER"].map('{:,.0f}'.format).values[0])
 
+st.text(" \n")
+st.write(""" After the launch of the Station, all bridge metrics increased significantly, but Luna bridge volume almost tripled from 157,246 to 556,443. The change in daily charts is clearly visible. """)
+st.text(" \n")
+c1, c2 = st.columns(2)
+with c1:
 
-st.text(" \n")
-st.text(" \n")
-st.write(""" ### Bridge Metrics   """)
-st.text(" \n")
-st.text(" \n")
+    # Bridged Out - Number of Transactions
+    fig = px.pie(df, values="NUMBER",
+                 names="STATUS", title='Bridged Out - Number of Transactions', hole=0.5)
+    fig.update_layout(legend_title=None, legend_y=0.5)
+    fig.update_traces(textinfo='percent+value', textposition='inside')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+with c2:
 
-# Bridged Out - Number of Transactions
-fig = px.pie(df, values="NUMBER",
-             names="STATUS", title='Bridged Out - Number of Transactions', hole=0.5)
-fig.update_layout(legend_title=None, legend_y=0.5)
-fig.update_traces(textinfo='percent+value', textposition='inside')
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-
-# Bridged Out - Number of Volume
-fig = px.pie(df, values="VOLUME",
-             names="STATUS", title='Bridged Out - Volume', hole=0.5)
-fig.update_layout(legend_title=None, legend_y=0.5)
-fig.update_traces(textinfo='percent+value', textposition='inside')
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+    # Bridged Out - Number of Volume
+    fig = px.pie(df, values="VOLUME",
+                 names="STATUS", title='Bridged Out - Volume', hole=0.5)
+    fig.update_layout(legend_title=None, legend_y=0.5)
+    fig.update_traces(textinfo='percent+value', textposition='inside')
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 # Bridged Out - Number of Users
 fig = px.pie(df, values="ACTIVE_USERS",
@@ -95,8 +100,13 @@ fig = px.pie(df, values="ACTIVE_USERS",
 fig.update_layout(legend_title=None, legend_y=0.5)
 fig.update_traces(textinfo='percent+value', textposition='inside')
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+st.text(" \n")
+st.text(" \n")
 
-st.write(""" ### Bridge out Range Distribution """)
+st.write(""" ## Bridge out Range Distribution """)
+st.text(" \n")
+st.write(""" Since the launch of Station, transactions and users have increased across all bridge volume categories. As a result of the launch, the 1000-10000 range has experienced the highest increase:
+Transactions : 5 to 33 , Users: 8 to 26. """)
 
 # Distribution of transactions based on "bridged out" Number of Bridge
 fig = px.bar(df3.sort_values(["BRIDGE_RANGE", "NUMBER_OF_BRIDGES"], ascending=[

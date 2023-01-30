@@ -40,7 +40,7 @@ However, the current Terra network is rather small. We mentioned already that 47
 
 ### Methodology ###
 
-The Terra community announced the launch of the Station on 14 January. This announcement has generated hype in the Terra community. Has this type translated to an increase in activity ?  
+The Terra community announced the launch of the Station on 14 January. This announcement has generated hype in the Terra community. Has this hype translated to an increase in activity ?  
 To answer this question The Terra core schema tables on the Flipside database are used to obtain the necessary data.
 It was taken into account the period 7 days before the  announcement and 7 days after the  announcement (07 Jan-21 Jan).
 Metrics are show in 5 category:  
@@ -50,11 +50,9 @@ Metrics are show in 5 category:
 4- Bridge: include metrics about bridge transactions before and after the Station Lunch.   
 5- Price: review price change before and after this announcement.
 
-This dashboard uses the following table:   
+This dashboard uses the following tables:   
 * terra.core.fact_transactions
-
 * terra.core.ez_staking
-
 * terra.core.ez_swaps
 
 
@@ -62,7 +60,6 @@ This dashboard uses the following table:
  
  """
          )
-st.text(" \n")
 
 
 st.write("""   

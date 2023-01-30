@@ -50,13 +50,9 @@ df4 = Daily_net_staking_actions
 df5 = Reward_Recievers
 
 
-st.write(""" ### Daily Staking Actions """)
-# Number of Delegators
-fig = px.bar(df.sort_values(["DATE", "WALLET"], ascending=[
-             True, False]), x="DATE", y="WALLET", color="STATUS", title='Number of Delegators ')
-fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="Number of Delagators")
-st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+st.write(""" ## Staking Actions """)
+st.write(""" Staking is when you lock crypto assets for a set period of time to help support the operation of a blockchain. In return for staking your crypto, you earn more cryptocurrency. Many blockchains use a proof of stake consensus mechanism. """)
+
 
 # Daily staking actions-Volume
 fig = px.bar(df.sort_values(["DATE", "VOLUME"], ascending=[
@@ -65,6 +61,8 @@ fig.update_layout(legend_title=None, xaxis_title=None,
                   yaxis_title="Staking Action Volume")
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.write(""" After the launch, there has been a significant increase in stakes, as shown in the charts. After Jan 13 action volume massively increased, while the number of Daily bridge transactions were moderatly increased. This shows the transactions with higher volume were common.  """)
+
 # Daily Staking Transactions
 fig = px.bar(df.sort_values(["DATE", "NUMBER_OF_TX"], ascending=[
              True, False]), x="DATE", y="NUMBER_OF_TX", color="STATUS", title='Daily Staking Transactions')
@@ -72,17 +70,19 @@ fig.update_layout(legend_title=None, xaxis_title=None,
                   yaxis_title="Daily Number of Transactions")
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
-
-st.write(""" ### Daily Staking Rewards """)
-
-# staking reward- usd scale
-fig = px.bar(df2.sort_values(["DATE", "STAKING_REWARDS_USD"], ascending=[
-             True, False]), x="DATE", y="STAKING_REWARDS_USD", color="STATUS", title='Staking Reward-[USD]')
+# Number of Delegators
+fig = px.bar(df.sort_values(["DATE", "WALLET"], ascending=[
+             True, False]), x="DATE", y="WALLET", color="STATUS", title='Number of Delegators ')
 fig.update_layout(legend_title=None, xaxis_title=None,
-                  yaxis_title="Staking Reward [USD]")
+                  yaxis_title="Number of Delagators")
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.text(" \n")
+
 st.write(""" ### Daily Unstaking Actions """)
+
+st.write(""" Unstaking volume is also increasing, but not as much as staking. While staking transactions did not change significantly after the launch, unstaking transactions grew significantly.  """)
+
 
 # Number of UnDelegators
 fig = px.bar(df3.sort_values(["DATE", "WALLET"], ascending=[
@@ -106,6 +106,8 @@ fig.update_layout(legend_title=None, xaxis_title=None,
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
+st.text(" \n")
+
 st.write(""" ### Daily Net Staking Actions """)
 
 # Daily Net volume Staking
@@ -113,6 +115,17 @@ fig = px.bar(df4.sort_values(["DATE", "NET Volume"], ascending=[
              True, False]), x="DATE", y="NET Volume", color="STATUS", title='Daily Net volume Staking')
 fig.update_layout(legend_title=None, xaxis_title=None,
                   yaxis_title="NET Volume")
+st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+st.text(" \n")
+
+st.write(""" ### Daily Staking Rewards """)
+
+# staking reward- usd scale
+fig = px.bar(df2.sort_values(["DATE", "STAKING_REWARDS_USD"], ascending=[
+             True, False]), x="DATE", y="STAKING_REWARDS_USD", color="STATUS", title='Staking Reward-[USD]')
+fig.update_layout(legend_title=None, xaxis_title=None,
+                  yaxis_title="Staking Reward [USD]")
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
